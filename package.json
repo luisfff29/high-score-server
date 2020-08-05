@@ -2,10 +2,10 @@
   "name": "high-score-server",
   "version": "1.0.0",
   "description": "Web server that keeps track of high scores in a game",
-  "main": "index.js",
+  "main": "scores.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index"
+    "start": "node scores"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/luisfff29/high-score-server/issues"
   },
-  "homepage": "https://github.com/luisfff29/high-score-server#readme"
+  "homepage": "https://github.com/luisfff29/high-score-server#readme",
+  "dependencies": {
+    "body": "^5.1.0"
+  }
 }
