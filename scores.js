@@ -16,10 +16,21 @@ const server = http.createServer((req, res) => {
             res.end(
                 "Welcome to High Score Server, go to /scores and play around with GET and POST requests. "
             );
+        } else if (req.url === "/scores") {
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
+            res.end(JSON.stringify(scores));
         } else {
             res.statusCode = 404;
             res.end("ERROR NOT FOUND");
         }
+    } else if (req.method === "POST") {
+        res.statusCode = 201;
+        res.setHeader("Content-Type", "application/json");
+        jsonBody(req, res, (err, requestBody) => {
+            scores.push(requestBody);
+            res.end(JSON.stringify(requestBody));
+        });
     }
 });
 
