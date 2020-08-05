@@ -29,7 +29,11 @@ const server = http.createServer((req, res) => {
         res.setHeader("Content-Type", "application/json");
         jsonBody(req, res, (err, requestBody) => {
             scores.push(requestBody);
-            res.end(JSON.stringify(requestBody));
+            new_scores = scores
+                .concat()
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 3);
+            res.end(JSON.stringify(new_scores));
         });
     }
 });
